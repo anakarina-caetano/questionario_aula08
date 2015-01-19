@@ -17,7 +17,7 @@ fluidPage(
 
   h2("Questionário sobre a aula 08"),
   tags$hr(),
-  h4('Curso R - do casual ao avançado'),
+  h4('Na aula 08 daremos 2 ou 3 temas de interesse da maioria dos alunos. Os temas com maior número de votos serão abordados de maneira introdutória.'),
   tags$hr(),
 
   wellPanel(fluidRow(
