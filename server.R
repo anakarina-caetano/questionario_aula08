@@ -19,7 +19,9 @@ shinyServer(function(input, output, session) {
   })
 
   dados <- reactive({
-    d <- data_frame(datetime=as.character(now()), email=input$email, q1=input$q1) %>%
+    d <- data_frame(datetime=as.character(now()),
+                    email=input$email,
+                    q1=paste(input$q1, collapse='@')) %>%
       as.data.frame()
     return(d)
   })
@@ -53,13 +55,13 @@ shinyServer(function(input, output, session) {
       }
 
       if(aux > 0 & val & res) {
-        showshinyalert(session,'salvou', 'Salvou!!', 'success')
+        createAlert(session, 'salvou', message='Salvou!!', type='success')
       } else if (aux == 0) {
-        showshinyalert(session, 'salvou', 'Clique em salvar!', 'warning')
+        createAlert(session, 'salvou', message='Clique em salvar!', type='warning')
       } else if (!val) {
-        showshinyalert(session,'salvou', 'Existem campos obrigatórios que não foram preenchidos corretamente', 'danger')
+        createAlert(session,'salvou', message='Existem campos obrigatórios que não foram preenchidos corretamente', type='danger')
       } else if(!res) {
-        showshinyalert(session,'salvou', 'Ocorreu um erro na base de dados.', 'danger')
+        createAlert(session,'salvou', message='Ocorreu um erro na base de dados.', type='danger')
       }
 
     })

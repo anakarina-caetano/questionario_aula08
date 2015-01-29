@@ -1,6 +1,6 @@
 library(shiny)
 # https://github.com/AnalytixWare/ShinySky
-library(shinysky)
+library(shinyBS)
 
 inputTextarea <- function(inputId, value="", nrows, ncols) {
   tagList(
@@ -43,7 +43,7 @@ fluidPage(
 
   actionButton('salvar', 'Salvar!'),
   tags$br(), tags$br(),
-  shinyalert('salvou', click.hide=FALSE),
+  bsAlert('salvou'),
 
   tags$br(),
   tags$span('Esse questionário foi feito utilizando R e Shiny. Código disponível em',
